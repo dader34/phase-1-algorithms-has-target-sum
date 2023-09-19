@@ -1,17 +1,33 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  let seen = new Set()
+  for(let i = 0;i<array.length;i++){
+    const compliment = target - array[i]
+    if(seen.has(compliment)){
+      return true
+    }
+    seen.add(array[i])
+  }
+  return false
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  o(n) time complexity because its one for loop and .has() has linear time complexity
 */
 
 /* 
-  Add your pseudocode here
+  create set 
+  for element of array
+  if item is not in set, add it
+  compliment = target - num
+  if compliment exists in set , return true
+  return false
 */
 
 /*
-  Add written explanation of your solution here
+  a new set is created with nothing in it because we dont need key, and value, only one
+  loop through the array and look for the complement number aka the number that plus our current index equals the target
+  if the set contains the compliment, return true, else, add the current index to our set
+  otherwise return false
 */
 
 // You can run `node index.js` to view these console logs
